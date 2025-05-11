@@ -1,0 +1,9 @@
+{
+  "creativetab.tfc_blasting_tab"                                  : "TFC Blasting",
+
+  "item.tfc_blasting.dynamite"                                    : "Dynamite",
+  "item.tfc_blasting.clay_rod"                                    : "Clay Rod",
+  "item.tfc_blasting.clay_rod_nitroglycerin"                      : "Nitroglycerin Soaked Clay Rod",
+
+  "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Absorbing"
+}

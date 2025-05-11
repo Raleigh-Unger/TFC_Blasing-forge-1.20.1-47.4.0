@@ -1,0 +1,51 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "firmalife"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {"item": "tfc_blasting:clay_rod_nitroglycerin"},
+          {"item": "minecraft:paper"},
+          {"item": "tfc:wool_yarn"},
+          {"item": "firmalife:beeswax"}
+        ],
+        "result": {
+          "item": "tfc_blasting:dynamite",
+          "count": 1
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "firmalife"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {"item": "tfc_blasting:clay_rod_nitroglycerin"},
+          {"item": "minecraft:paper"},
+          {"item": "tfc:wool_yarn"}
+        ],
+        "result": {
+          "item": "tfc_blasting:dynamite",
+          "count": 1
+        }
+      }
+    }
+  ]
+}

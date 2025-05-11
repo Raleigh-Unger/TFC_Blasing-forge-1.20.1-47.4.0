@@ -85,11 +85,19 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+
+            // Needed to make patchouli version mappings work
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
+
+            // Needed to make patchouli version mappings work
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -121,6 +129,14 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
+    maven {
+        url 'https://www.cursemaven.com'
+        // FG4: It's recommended to uncomment the following block
+         content {
+             includeGroup "curse.maven"
+         }
+    }
 }
 
 dependencies {
@@ -130,6 +146,10 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation fg.deobf("curse.maven:terrafirmacraft-302973:6187491")
+    implementation fg.deobf("curse.maven:patchouli-306770:6164575")
+    implementation fg.deobf("curse.maven:jei-238222:6075247")
+    implementation fg.deobf("curse.maven:firmalife-453394:6438438")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -158,6 +178,7 @@ tasks.named('processResources', ProcessResources).configure {
             loader_version_range: loader_version_range,
             mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors: mod_authors, mod_description: mod_description,
+            tfc_version_range: tfc_version_range
     ]
     inputs.properties replaceProperties
 

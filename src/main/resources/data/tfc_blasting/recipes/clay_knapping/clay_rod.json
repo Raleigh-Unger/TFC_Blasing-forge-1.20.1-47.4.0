@@ -1,0 +1,15 @@
+{
+  "type":"tfc:knapping",
+  "knapping_type":"tfc:clay",
+  "pattern":[
+  "X X X",
+  "X X X",
+  "X X X",
+  "X X X",
+  "X X X"
+],
+  "result":{
+    "item":"tfc_blasting:clay_rod",
+    "count":3
+  }
+}
