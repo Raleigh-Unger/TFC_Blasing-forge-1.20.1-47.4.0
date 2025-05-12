@@ -13,6 +13,11 @@ public class ModItems {
     public static final RegistryObject<Item> DYNAMITE               = ITEMS.register("dynamite",                () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CLAY_ROD               = ITEMS.register("clay_rod",                () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CLAY_ROD_NITROGLYCERIN = ITEMS.register("clay_rod_nitroglycerin",  () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_COPPER        = ITEMS.register("fuse_cap_copper",         () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_COPPER_EMPTY  = ITEMS.register("fuse_cap_copper_empty",   () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_TIN           = ITEMS.register("fuse_cap_tin",            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_TIN_EMPTY     = ITEMS.register("fuse_cap_tin_empty",      () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse",                    () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

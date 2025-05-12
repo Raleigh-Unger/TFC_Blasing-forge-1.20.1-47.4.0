@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc_blasting:fuse_cap_tin_empty"
+  },
+  "result_fluid": {
+    "fluid": "tfc:metal/tin",
+    "amount": 25
+  },
+  "temperature": 230
+}

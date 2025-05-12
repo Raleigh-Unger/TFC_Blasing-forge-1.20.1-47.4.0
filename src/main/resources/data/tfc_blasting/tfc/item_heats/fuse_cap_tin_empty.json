@@ -1,0 +1,8 @@
+{
+  "ingredient": {
+    "item": "tfc_blasting:fuse_cap_tin_empty"
+  },
+  "heat_capacity": 6,
+  "forging_temperature": 138,
+  "welding_temperature": 184
+}

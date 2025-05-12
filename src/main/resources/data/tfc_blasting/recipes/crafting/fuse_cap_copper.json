@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    },
+    {
+      "item": "tfc_blasting:fuse_cap_copper_empty"
+    }
+  ],
+  "result": {
+    "item": "tfc_blasting:fuse_cap_copper",
+    "count": 8
+  }
+}

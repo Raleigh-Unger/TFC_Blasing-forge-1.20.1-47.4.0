@@ -14,7 +14,8 @@
         "ingredients": [
           {"item": "tfc_blasting:clay_rod_nitroglycerin"},
           {"item": "minecraft:paper"},
-          {"item": "tfc:wool_yarn"},
+          {"item": "tfc_blasting:fuse"},
+          {"tag": "tfc_blasting:fuse_caps"},
           {"item": "firmalife:beeswax"}
         ],
         "result": {
@@ -39,7 +40,8 @@
         "ingredients": [
           {"item": "tfc_blasting:clay_rod_nitroglycerin"},
           {"item": "minecraft:paper"},
-          {"item": "tfc:wool_yarn"}
+          {"item": "tfc_blasting:fuse"},
+          {"tag": "tfc_blasting:fuse_caps"}
         ],
         "result": {
           "item": "tfc_blasting:dynamite",

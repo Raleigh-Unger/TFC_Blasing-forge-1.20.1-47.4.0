@@ -14,7 +14,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.tunnelcat.tfc_blasting.item.ModCreativeModeTabs;
+import net.tunnelcat.tfc_blasting.util.ModCreativeModeTabs;
 import net.tunnelcat.tfc_blasting.item.ModItems;
 import org.slf4j.Logger;
 
@@ -49,6 +49,11 @@ public class TFCBlasting
             event.accept(ModItems.DYNAMITE);
             event.accept(ModItems.CLAY_ROD_NITROGLYCERIN);
             event.accept(ModItems.CLAY_ROD);
+            event.accept(ModItems.FUSE);
+            event.accept(ModItems.FUSE_CAP_COPPER);
+            event.accept(ModItems.FUSE_CAP_COPPER_EMPTY);
+            event.accept(ModItems.FUSE_CAP_TIN);
+            event.accept(ModItems.FUSE_CAP_TIN_EMPTY);
         }
     }
 

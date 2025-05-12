@@ -3,6 +3,11 @@
 
   "item.tfc_blasting.dynamite"                                    : "Dynamite",
   "item.tfc_blasting.clay_rod"                                    : "Clay Rod",
+  "item.tfc_blasting.fuse"                                        : "Fuse",
+  "item.tfc_blasting.fuse_cap_copper"                             : "Copper Fuse Cap",
+  "item.tfc_blasting.fuse_cap_copper_empty"                       : "Empty Copper Fuse Cap",
+  "item.tfc_blasting.fuse_cap_tin"                                : "Tin Fuse Cap",
+  "item.tfc_blasting.fuse_cap_tin_empty"                          : "Empty Tin Fuse Cap",
   "item.tfc_blasting.clay_rod_nitroglycerin"                      : "Nitroglycerin Soaked Clay Rod",
 
   "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Absorbing"

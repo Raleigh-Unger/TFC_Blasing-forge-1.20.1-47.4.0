@@ -1,0 +1,17 @@
+{
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/sheet/copper"
+  },
+  "result": {
+    "item": "tfc_blasting:fuse_cap_copper_empty",
+    "count": 8
+  },
+  "tier": 1,
+  "rules": [
+    "punch_last",
+    "draw_not_last",
+    "shrink_not_last"
+  ],
+  "apply_forging_bonus": false
+}

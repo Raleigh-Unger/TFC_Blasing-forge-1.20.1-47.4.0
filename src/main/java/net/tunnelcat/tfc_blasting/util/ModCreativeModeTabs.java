@@ -1,4 +1,4 @@
-package net.tunnelcat.tfc_blasting.item;
+package net.tunnelcat.tfc_blasting.util;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.tunnelcat.tfc_blasting.TFCBlasting;
+import net.tunnelcat.tfc_blasting.item.ModItems;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TFCBlasting.MOD_ID);
@@ -20,6 +21,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DYNAMITE.get());
                         output.accept(ModItems.CLAY_ROD_NITROGLYCERIN.get());
                         output.accept(ModItems.CLAY_ROD.get());
+                        output.accept(ModItems.FUSE.get());
+                        output.accept(ModItems.FUSE_CAP_COPPER.get());
+                        output.accept(ModItems.FUSE_CAP_COPPER_EMPTY.get());
+                        output.accept(ModItems.FUSE_CAP_TIN.get());
+                        output.accept(ModItems.FUSE_CAP_TIN_EMPTY.get());
                     })
                     .build());
 
