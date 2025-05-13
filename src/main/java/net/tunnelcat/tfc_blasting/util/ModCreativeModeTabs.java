@@ -19,14 +19,6 @@ public class ModCreativeModeTabs {
                     .icon(() -> new ItemStack(ModItems.DYNAMITE.get()))
                     .title(Component.translatable("creativetab.tfc_blasting_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
-//                        output.accept(ModItems.DYNAMITE.get());
-//                        output.accept(ModItems.CLAY_ROD_NITROGLYCERIN.get());
-//                        output.accept(ModItems.CLAY_ROD.get());
-//                        output.accept(ModItems.FUSE.get());
-//                        output.accept(ModItems.FUSE_CAP_COPPER.get());
-//                        output.accept(ModItems.FUSE_CAP_COPPER_EMPTY.get());
-//                        output.accept(ModItems.FUSE_CAP_TIN.get());
-//                        output.accept(ModItems.FUSE_CAP_TIN_EMPTY.get());
                         ModItems.ITEMS.getEntries().forEach(reg -> output.accept(reg.get()));
                         ModFluidItems.SIMPLE_FLUID_BUCKETS.values().forEach(reg -> output.accept(reg.get()));
                     })

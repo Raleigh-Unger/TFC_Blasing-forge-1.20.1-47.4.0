@@ -25,23 +25,19 @@ public class ModFluidBlocks {
             registerNoItem("fluid/" + fluid.getSerializedName(), () -> new LiquidBlock(ModFluids.SIMPLE_FLUIDS.get(fluid).source(), Properties.copy(Blocks.WATER).noLootTable()))
     );
 
-    private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier)
-    {
+    private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier) {
         return register(name, blockSupplier, (Function<T, ? extends BlockItem>) null);
     }
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier)
-    {
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
         return register(name, blockSupplier, block -> new BlockItem(block, new Item.Properties()));
     }
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties blockItemProperties)
-    {
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties blockItemProperties) {
         return register(name, blockSupplier, block -> new BlockItem(block, blockItemProperties));
     }
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, @Nullable Function<T, ? extends BlockItem> blockItemFactory)
-    {
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, @Nullable Function<T, ? extends BlockItem> blockItemFactory) {
         return RegistrationHelpers.registerBlock(FLUID_BLOCKS, ModFluidItems.FLUID_ITEMS, name, blockSupplier, blockItemFactory);
     }
 }

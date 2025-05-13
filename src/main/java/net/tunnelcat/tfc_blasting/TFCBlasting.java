@@ -2,10 +2,8 @@ package net.tunnelcat.tfc_blasting;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,6 +29,7 @@ public class TFCBlasting
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        // Order of registrations here determines order of items in the creative tab (I'm built different)
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModFluids.FLUIDS.register(modEventBus);
@@ -39,7 +38,6 @@ public class TFCBlasting
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-//        modEventBus.addListener(this::addCreative);
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -47,21 +45,6 @@ public class TFCBlasting
     {
 
     }
-
-    // Add items to creative tab
-//    private void addCreative(BuildCreativeModeTabContentsEvent event)
-//    {
-//        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-//            event.accept(ModItems.DYNAMITE);
-//            event.accept(ModItems.CLAY_ROD_NITROGLYCERIN);
-//            event.accept(ModItems.CLAY_ROD);
-//            event.accept(ModItems.FUSE);
-//            event.accept(ModItems.FUSE_CAP_COPPER);
-//            event.accept(ModItems.FUSE_CAP_COPPER_EMPTY);
-//            event.accept(ModItems.FUSE_CAP_TIN);
-//            event.accept(ModItems.FUSE_CAP_TIN_EMPTY);
-//        }
-//    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

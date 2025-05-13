@@ -37,8 +37,7 @@ public class ModFluids {
             MixingFluid.Flowing::new
     ));
 
-    private static FluidType.Properties lavaLike()
-    {
+    private static FluidType.Properties lavaLike() {
         return FluidType.Properties.create()
                 .adjacentPathType(BlockPathTypes.LAVA)
                 .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
@@ -56,8 +55,7 @@ public class ModFluids {
                 .supportsBoating(false);
     }
 
-    private static FluidType.Properties waterLike()
-    {
+    private static FluidType.Properties waterLike() {
         return FluidType.Properties.create()
                 .adjacentPathType(BlockPathTypes.WATER)
                 .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
@@ -71,9 +69,8 @@ public class ModFluids {
                 .supportsBoating(true);
     }
 
-    private static <F extends FlowingFluid> FluidRegistryObject<F> register(String name, Consumer<ForgeFlowingFluid.Properties> builder, FluidType.Properties typeProperties, FluidTypeClientProperties clientProperties, Function<ForgeFlowingFluid.Properties, F> sourceFactory, Function<ForgeFlowingFluid.Properties, F> flowingFactory)
-    {
-        // Names `metal/foo` to `metal/flowing_foo`
+    private static <F extends FlowingFluid> FluidRegistryObject<F> register(String name, Consumer<ForgeFlowingFluid.Properties> builder, FluidType.Properties typeProperties, FluidTypeClientProperties clientProperties, Function<ForgeFlowingFluid.Properties, F> sourceFactory, Function<ForgeFlowingFluid.Properties, F> flowingFactory) {
+        // Names `foo/foo` to `foo/flowing_foo`
         final int index = name.lastIndexOf('/');
         final String flowingName = index == -1 ? "flowing_" + name : name.substring(0, index) + "/flowing_" + name.substring(index + 1);
 
