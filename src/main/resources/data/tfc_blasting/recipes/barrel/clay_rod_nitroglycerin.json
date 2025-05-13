@@ -6,7 +6,7 @@
     }
   },
   "input_fluid": {
-    "ingredient": "minecraft:water",
+    "ingredient": "tfc_blasting:nitroglycerin",
     "amount": 500
   },
   "output_item": {

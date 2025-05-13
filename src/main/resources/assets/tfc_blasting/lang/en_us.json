@@ -9,6 +9,11 @@
   "item.tfc_blasting.fuse_cap_tin"                                : "Tin Fuse Cap",
   "item.tfc_blasting.fuse_cap_tin_empty"                          : "Empty Tin Fuse Cap",
   "item.tfc_blasting.clay_rod_nitroglycerin"                      : "Nitroglycerin Soaked Clay Rod",
+  "item.tfc_blasting.bucket.nitroglycerin"                        : "Nitroglycerin Bucket",
+  "item.tfc_blasting.bucket.glycerin"                             : "Glycerin Bucket",
+
+  "fluid.tfc_blasting.nitroglycerin"                              : "Nitroglycerin",
+  "fluid.tfc_blasting.glycerin"                                   : "Glycerin",
 
   "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Absorbing"
 }
