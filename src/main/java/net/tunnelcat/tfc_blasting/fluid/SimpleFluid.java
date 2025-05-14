@@ -4,8 +4,12 @@ import java.util.Locale;
 import net.minecraft.util.StringRepresentable;
 
 public enum SimpleFluid implements StringRepresentable {
-    GLYCERIN(0xFFa79464),
-    NITROGLYCERIN(0xFFfcfae2)
+    GLYCERIN_SLURRY(0xFFd9bc00),
+    GLYCERIN(0xFFd18902),
+    NITROGLYCERIN(0xFFf5c87f),
+    SULFURIC_ACID(0xFFebe8b0),
+    NITRIC_ACID(0xFFd9ce5b),
+    GUNPOWDER_SLURRY(0xFF6b6b6b)
     ;
 
     private final String id;

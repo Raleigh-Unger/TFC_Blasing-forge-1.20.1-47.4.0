@@ -1,0 +1,14 @@
+{
+  "type": "tfc:pot",
+  "ingredients": [],
+  "fluid_ingredient": {
+    "ingredient": "tfc_blasting:glycerin_slurry",
+    "amount": 1000
+  },
+  "duration": 2000,
+  "temperature": 290,
+  "fluid_output": {
+    "fluid": "tfc_blasting:glycerin",
+    "amount": 25
+  }
+}

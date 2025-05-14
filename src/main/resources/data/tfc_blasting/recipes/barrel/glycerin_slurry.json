@@ -1,0 +1,15 @@
+{
+  "type": "tfc:barrel_instant_fluid",
+  "primary_fluid": {
+    "ingredient": "tfc:olive_oil",
+    "amount": 80
+  },
+  "added_fluid": {
+    "ingredient": "tfc:lye",
+    "amount": 20
+  },
+  "output_fluid": {
+    "fluid": "tfc_blasting:glycerin_slurry",
+    "amount": 100
+  }
+}

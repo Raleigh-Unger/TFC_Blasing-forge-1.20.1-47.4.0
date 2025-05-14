@@ -11,9 +11,17 @@
   "item.tfc_blasting.clay_rod_nitroglycerin"                      : "Nitroglycerin Soaked Clay Rod",
   "item.tfc_blasting.bucket.nitroglycerin"                        : "Nitroglycerin Bucket",
   "item.tfc_blasting.bucket.glycerin"                             : "Glycerin Bucket",
+  "item.tfc_blasting.bucket.sulfuric_acid"                        : "Sulfuric Acid Bucket",
+  "item.tfc_blasting.bucket.nitric_acid"                          : "Nitric Acid Bucket",
+  "item.tfc_blasting.bucket.glycerin_slurry"                      : "Dirty Glycerin Bucket",
+  "item.tfc_blasting.bucket.gunpowder_slurry"                     : "Gunpowder Slurry Bucket",
 
   "fluid.tfc_blasting.nitroglycerin"                              : "Nitroglycerin",
   "fluid.tfc_blasting.glycerin"                                   : "Glycerin",
+  "fluid.tfc_blasting.sulfuric_acid"                              : "Sulfuric Acid",
+  "fluid.tfc_blasting.nitric_acid"                                : "Nitric Acid",
+  "fluid.tfc_blasting.glycerin_slurry"                            : "Dirty Glycerin",
+  "fluid.tfc_blasting.gunpowder_slurry"                           : "Gunpowder Slurry",
 
   "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Absorbing"
 }
