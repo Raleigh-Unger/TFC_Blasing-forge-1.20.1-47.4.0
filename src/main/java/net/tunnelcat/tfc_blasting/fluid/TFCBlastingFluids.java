@@ -12,25 +12,28 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.tunnelcat.tfc_blasting.block.ModFluidBlocks;
-import net.tunnelcat.tfc_blasting.item.ModFluidItems;
+import net.tunnelcat.tfc_blasting.block.TFCBlastingBlocks;
 import net.dries007.tfc.common.fluids.ExtendedFluidType;
 import net.dries007.tfc.common.fluids.FluidRegistryObject;
 import net.dries007.tfc.common.fluids.FluidTypeClientProperties;
 import net.dries007.tfc.common.fluids.MixingFluid;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.registry.RegistrationHelpers;
+import net.tunnelcat.tfc_blasting.item.TFCBlastingItems;
+
 import static net.tunnelcat.tfc_blasting.TFCBlasting.MOD_ID;
 import static net.dries007.tfc.common.fluids.TFCFluids.*;
 
-public class ModFluids {
+public class TFCBlastingFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, MOD_ID);
 
     public static final Map<SimpleFluid, FluidRegistryObject<ForgeFlowingFluid>> SIMPLE_FLUIDS = Helpers.mapOfKeys(SimpleFluid.class, fluid -> register(
-            fluid.getSerializedName(),
-            properties -> properties.block(ModFluidBlocks.SIMPLE_FLUIDS.get(fluid)).bucket(ModFluidItems.SIMPLE_FLUID_BUCKETS.get(fluid)),
+            fluid.getId(),
+            properties -> properties
+                    .block(TFCBlastingBlocks.SIMPLE_FLUIDS.get(fluid))
+                    .bucket(TFCBlastingItems.SIMPLE_FLUID_BUCKETS.get(fluid)),
             waterLike()
-                    .descriptionId("fluid.tfc_blasting." + fluid.getSerializedName())
+                    .descriptionId("fluid.tfc_blasting." + fluid.getId())
                     .canConvertToSource(false),
             new FluidTypeClientProperties(fluid.getColor(), WATER_STILL, WATER_FLOW, WATER_OVERLAY, null),
             MixingFluid.Source::new,

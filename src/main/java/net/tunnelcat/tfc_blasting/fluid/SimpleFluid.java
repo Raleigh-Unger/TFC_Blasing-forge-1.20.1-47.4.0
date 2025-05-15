@@ -1,15 +1,16 @@
 package net.tunnelcat.tfc_blasting.fluid;
 
 import java.util.Locale;
-import net.minecraft.util.StringRepresentable;
 
-public enum SimpleFluid implements StringRepresentable {
+@SuppressWarnings("unused")
+public enum SimpleFluid {
     GLYCERIN_SLURRY(0xFFd9bc00),
     GLYCERIN(0xFFd18902),
     NITROGLYCERIN(0xFFf5c87f),
     SULFURIC_ACID(0xFFebe8b0),
     NITRIC_ACID(0xFFd9ce5b),
-    GUNPOWDER_SLURRY(0xFF6b6b6b)
+    GUNPOWDER_SLURRY(0xFF6b6b6b),
+    PICRIC_ACID_WET(0XFFcfd94a)
     ;
 
     private final String id;
@@ -20,12 +21,16 @@ public enum SimpleFluid implements StringRepresentable {
         this.color = color;
     }
 
-    @Override
-    public String getSerializedName() {
+    public String getId() {
         return id;
     }
 
     public int getColor() {
         return color;
+    }
+
+    public boolean isTransparent()
+    {
+        return this != GUNPOWDER_SLURRY;
     }
 }

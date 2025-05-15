@@ -1,13 +1,23 @@
 package net.tunnelcat.tfc_blasting.item;
 
+import net.dries007.tfc.util.Helpers;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tunnelcat.tfc_blasting.TFCBlasting;
+import net.tunnelcat.tfc_blasting.fluid.SimpleFluid;
+import net.tunnelcat.tfc_blasting.fluid.TFCBlastingFluids;
 
-public class ModItems {
+import java.util.Locale;
+import java.util.Map;
+import java.util.function.Supplier;
+
+@SuppressWarnings("unused")
+public class TFCBlastingItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TFCBlasting.MOD_ID);
 
     public static final RegistryObject<Item> DYNAMITE               = ITEMS.register("dynamite",                () -> new Item(new Item.Properties()));
@@ -19,7 +29,13 @@ public class ModItems {
     public static final RegistryObject<Item> FUSE_CAP_TIN_EMPTY     = ITEMS.register("fuse_cap_tin_empty",      () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse",                    () -> new Item(new Item.Properties()));
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    // Dynamically creates registrations for each fluid's corresponding filled bucket
+    public static final Map<SimpleFluid, RegistryObject<BucketItem>> SIMPLE_FLUID_BUCKETS = Helpers.mapOfKeys(SimpleFluid.class, fluid ->
+            register("bucket/" + fluid.getId(), () -> new BucketItem(TFCBlastingFluids.SIMPLE_FLUIDS.get(fluid).source(),
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)))
+    );
+
+    private static <T extends Item> RegistryObject<T> register(String name, Supplier<T> item) {
+        return ITEMS.register(name.toLowerCase(Locale.ROOT), item);
     }
 }

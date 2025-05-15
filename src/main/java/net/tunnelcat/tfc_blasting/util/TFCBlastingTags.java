@@ -7,7 +7,7 @@ import net.tunnelcat.tfc_blasting.TFCBlasting;
 
 import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
 
-public class ModTags {
+public class TFCBlastingTags {
     public static class Items {
         public static final TagKey<Item> FUSE_CAPS = tag("fuse_caps");
         public static final TagKey<Item> FUSE_CAPS_EMPTY = tag("fuse_caps_empty");

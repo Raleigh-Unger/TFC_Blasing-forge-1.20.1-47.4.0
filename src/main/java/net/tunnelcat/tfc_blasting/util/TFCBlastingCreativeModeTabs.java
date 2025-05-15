@@ -8,19 +8,18 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.tunnelcat.tfc_blasting.TFCBlasting;
-import net.tunnelcat.tfc_blasting.item.ModFluidItems;
-import net.tunnelcat.tfc_blasting.item.ModItems;
+import net.tunnelcat.tfc_blasting.item.TFCBlastingItems;
 
-public class ModCreativeModeTabs {
+public class TFCBlastingCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TFCBlasting.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TFCBLASTING_TAB = CREATIVE_MODE_TABS.register("tfc_blasting_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModItems.DYNAMITE.get()))
+                    .icon(() -> new ItemStack(TFCBlastingItems.DYNAMITE.get()))
                     .title(Component.translatable("creativetab.tfc_blasting_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        ModItems.ITEMS.getEntries().forEach(reg -> output.accept(reg.get()));
-                        ModFluidItems.SIMPLE_FLUID_BUCKETS.values().forEach(reg -> output.accept(reg.get()));
+                        TFCBlastingItems.ITEMS.getEntries().forEach(reg -> output.accept(reg.get()));
+                        TFCBlastingItems.SIMPLE_FLUID_BUCKETS.values().forEach(reg -> output.accept(reg.get()));
                     })
                     .build());
 
