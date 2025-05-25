@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x x",
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item":"tfc:metal/sheet/gold"
+    }
+  },
+  "result": {
+    "item": "tfc_blasting:metal/barrel/gold",
+    "count": 1
+  }
+}

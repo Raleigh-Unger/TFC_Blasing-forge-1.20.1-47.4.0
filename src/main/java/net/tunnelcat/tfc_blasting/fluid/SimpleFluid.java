@@ -10,7 +10,7 @@ public enum SimpleFluid {
     SULFURIC_ACID(0xFFebe8b0),
     NITRIC_ACID(0xFFd9ce5b),
     GUNPOWDER_SLURRY(0xFF6b6b6b),
-    PICRIC_ACID_WET(0XFFcfd94a)
+    PICRIC_ACID_WET(0xFFcfd94a)
     ;
 
     private final String id;

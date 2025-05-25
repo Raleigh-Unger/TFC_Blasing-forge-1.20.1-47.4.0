@@ -4,7 +4,6 @@ import net.dries007.tfc.util.Helpers;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -20,16 +19,16 @@ import java.util.function.Supplier;
 public class TFCBlastingItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TFCBlasting.MOD_ID);
 
-    public static final RegistryObject<Item> DYNAMITE               = ITEMS.register("dynamite",                () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_ROD               = ITEMS.register("clay_rod",                () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_ROD_NITROGLYCERIN = ITEMS.register("clay_rod_nitroglycerin",  () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUSE_CAP_COPPER        = ITEMS.register("fuse_cap_copper",         () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUSE_CAP_COPPER_EMPTY  = ITEMS.register("fuse_cap_copper_empty",   () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUSE_CAP_TIN           = ITEMS.register("fuse_cap_tin",            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUSE_CAP_TIN_EMPTY     = ITEMS.register("fuse_cap_tin_empty",      () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse",                    () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DYNAMITE               = ITEMS.register("dynamite"                 ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CLAY_ROD               = ITEMS.register("clay_rod"                 ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CLAY_ROD_NITROGLYCERIN = ITEMS.register("clay_rod_nitroglycerin"   ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_COPPER        = ITEMS.register("fuse_cap_copper"          ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_COPPER_EMPTY  = ITEMS.register("fuse_cap_copper_empty"    ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_TIN           = ITEMS.register("fuse_cap_tin"             ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE_CAP_TIN_EMPTY     = ITEMS.register("fuse_cap_tin_empty"       ,() -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse"                     ,() -> new Item(new Item.Properties()));
 
-    // Dynamically creates registrations for each fluid's corresponding filled bucket
+    // Creates registrations for each fluid's corresponding filled bucket
     public static final Map<SimpleFluid, RegistryObject<BucketItem>> SIMPLE_FLUID_BUCKETS = Helpers.mapOfKeys(SimpleFluid.class, fluid ->
             register("bucket/" + fluid.getId(), () -> new BucketItem(TFCBlastingFluids.SIMPLE_FLUIDS.get(fluid).source(),
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)))

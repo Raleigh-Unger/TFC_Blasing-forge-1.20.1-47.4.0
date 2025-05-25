@@ -22,8 +22,4 @@ public class TFCBlastingCreativeModeTabs {
                         TFCBlastingItems.SIMPLE_FLUID_BUCKETS.values().forEach(reg -> output.accept(reg.get()));
                     })
                     .build());
-
-    public static void register(IEventBus eventBus) {
-        CREATIVE_MODE_TABS.register(eventBus);
-    }
 }

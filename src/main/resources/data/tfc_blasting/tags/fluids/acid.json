@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values":[
+    "tfc_blasting:sulfuric_acid",
+    "tfc_blasting:nitric_acid",
+    "tfc_blasting:picric_acid_wet",
+    "tfc_blasting:nitroglycerin"
+  ]
+}

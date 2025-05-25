@@ -10,6 +10,7 @@
     "amount": 250
   },
   "output_fluid": {
-    "fluid": "tfc_blasting:gunpowder_slurry"
+    "fluid": "tfc_blasting:gunpowder_slurry",
+    "amount": 250
   }
 }
