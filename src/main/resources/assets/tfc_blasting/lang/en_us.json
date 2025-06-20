@@ -16,9 +16,6 @@
   "item.tfc_blasting.bucket.glycerin_slurry"                      : "Dirty Glycerin Bucket",
   "item.tfc_blasting.bucket.gunpowder_slurry"                     : "Gunpowder Slurry Bucket",
   "item.tfc_blasting.bucket.picric_acid_wet"                      : "Picric Acid Bucket",
-  "item.tfc_blasting.gold_barrel"                                 : "Gold Barrel",
-
-  "block.tfc_blasting.metal.barrel.gold"                          : "Gold Barrel",
 
   "fluid.tfc_blasting.nitroglycerin"                              : "Nitroglycerin",
   "fluid.tfc_blasting.glycerin"                                   : "Glycerin",
@@ -26,7 +23,5 @@
   "fluid.tfc_blasting.nitric_acid"                                : "Nitric Acid",
   "fluid.tfc_blasting.glycerin_slurry"                            : "Dirty Glycerin",
   "fluid.tfc_blasting.gunpowder_slurry"                           : "Gunpowder Slurry",
-  "fluid.tfc_blasting.picric_acid_wet"                            : "Picric Acid",
-
-  "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Absorbing"
+  "fluid.tfc_blasting.picric_acid_wet"                            : "Picric Acid"
 }

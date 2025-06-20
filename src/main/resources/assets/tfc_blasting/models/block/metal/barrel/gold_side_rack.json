@@ -1,9 +1,0 @@
-{
-  "parent": "tfc:block/barrel_side_rack",
-  "render_type": "cutout",
-  "textures": {
-    "particle": "tfc:block/metal/block/gold",
-    "planks": "tfc:block/metal/block/gold",
-    "sheet": "tfc:block/metal/block/gold"
-  }
-}

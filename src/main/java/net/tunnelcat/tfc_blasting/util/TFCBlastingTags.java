@@ -14,7 +14,6 @@ public class TFCBlastingTags {
         public static final TagKey<Item> FUSE_CAPS = itemTag("fuse_caps");
         public static final TagKey<Item> FUSE_CAPS_EMPTY = itemTag("fuse_caps_empty");
         public static final TagKey<Fluid> ACID = fluidTag("acid");
-        public static final TagKey<Fluid> USABLE_IN_GOLD_BARREL = fluidTag("usable_in_gold_barrel");
 
         private static TagKey<Item> itemTag(String name) {
             return ItemTags.create(fromNamespaceAndPath(TFCBlasting.MOD_ID, name));

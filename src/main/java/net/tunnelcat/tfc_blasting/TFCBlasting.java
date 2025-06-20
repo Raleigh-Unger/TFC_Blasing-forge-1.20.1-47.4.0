@@ -1,16 +1,10 @@
 package net.tunnelcat.tfc_blasting;
 
 import com.mojang.logging.LogUtils;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.tunnelcat.tfc_blasting.util.ClientEventHandler;
 import org.slf4j.Logger;
-import sun.misc.Unsafe;
-
-import java.lang.reflect.Field;
 
 import static net.tunnelcat.tfc_blasting.block.TFCBlastingBlocks.BLOCKS;
 import static net.tunnelcat.tfc_blasting.blockentity.TFCBlastingBlockEntities.BLOCK_ENTITIES;
@@ -37,20 +31,5 @@ public class TFCBlasting {
         ITEMS.register(modEventBus);
 
         LOGGER.info("TFC Blasting done registrations");
-
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            ClientEventHandler.init(modEventBus);
-        }
-    }
-
-    static void setFinal(Field field, Object source, Object newValue) throws Exception {
-        field.setAccessible(true);
-
-        final Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
-        unsafeField.setAccessible(true);
-        Unsafe u = (Unsafe) unsafeField.get(null);
-
-        long fieldOffset = u.objectFieldOffset(field);
-        u.putObject(source, fieldOffset, newValue);
     }
 }
