@@ -13,7 +13,8 @@ public class TFCBlastingTags {
     public static class Items {
         public static final TagKey<Item> FUSE_CAPS = itemTag("fuse_caps");
         public static final TagKey<Item> FUSE_CAPS_EMPTY = itemTag("fuse_caps_empty");
-        public static final TagKey<Fluid> ACID = fluidTag("acid");
+        public static final TagKey<Item> STAR_DRILLS = itemTag("star_drills");
+        public static final TagKey<Fluid> ACIDS = fluidTag("acids");
 
         private static TagKey<Item> itemTag(String name) {
             return ItemTags.create(fromNamespaceAndPath(TFCBlasting.MOD_ID, name));

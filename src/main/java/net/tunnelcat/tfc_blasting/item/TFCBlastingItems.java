@@ -4,6 +4,7 @@ import net.dries007.tfc.util.Helpers;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,6 +28,14 @@ public class TFCBlastingItems {
     public static final RegistryObject<Item> FUSE_CAP_TIN           = ITEMS.register("fuse_cap_tin"             ,() -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FUSE_CAP_TIN_EMPTY     = ITEMS.register("fuse_cap_tin_empty"       ,() -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse"                     ,() -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> STAR_DRILL_IRON        = ITEMS.register("star_drill_iron"          ,() -> new StarDrillItem(
+            new Item.Properties()
+                    .stacksTo(1)
+                    .durability(25)
+                    .rarity(Rarity.COMMON)
+            )
+    );
 
     // Creates registrations for each fluid's corresponding filled bucket
     public static final Map<SimpleFluid, RegistryObject<BucketItem>> SIMPLE_FLUID_BUCKETS = Helpers.mapOfKeys(SimpleFluid.class, fluid ->

@@ -1,6 +1,6 @@
 {
   "ingredient": {
-    "item": "tfc_blasting:fuse_cap_copper_empty"
+    "tag": "tfc_blasting:fuse_caps_empty"
   },
   "size": "very_small",
   "weight": "very_light"

@@ -16,6 +16,7 @@
   "item.tfc_blasting.bucket.glycerin_slurry"                      : "Dirty Glycerin Bucket",
   "item.tfc_blasting.bucket.gunpowder_slurry"                     : "Gunpowder Slurry Bucket",
   "item.tfc_blasting.bucket.picric_acid_wet"                      : "Picric Acid Bucket",
+  "item.tfc_blasting.star_drill_iron"                             : "Wrought Iron Star Drill",
 
   "fluid.tfc_blasting.nitroglycerin"                              : "Nitroglycerin",
   "fluid.tfc_blasting.glycerin"                                   : "Glycerin",
