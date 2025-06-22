@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -21,21 +22,23 @@ import java.util.Random;
 
 public class StarDrillItem extends Item {
     private BlockPos clickedBlock;
-    private Player player;
+    private Direction face;
 
-    public StarDrillItem(Properties pProperties) {
-        super(pProperties);
-    }
+    public StarDrillItem(Properties pProperties) {super(pProperties);}
+
+    @Override public int getUseDuration(ItemStack pStack) {return 100;}
+    @Override public UseAnim getUseAnimation(ItemStack pStack) {return UseAnim.BOW;}
 
     // Runs when item is right-clicked on a block
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()) {
-            player = pContext.getPlayer();
+            Player player = pContext.getPlayer();
             ItemStack itemMainhand = player.getMainHandItem();
             ItemStack itemOffhand = player.getOffhandItem();
-            Direction face = pContext.getClickedFace();
+
             clickedBlock = pContext.getClickedPos();
+            face = pContext.getClickedFace();
 
             // Check if star drill in offhand and hammer in main hand then do the interaction
             if(itemOffhand.is(TFCBlastingTags.Items.STAR_DRILLS) && itemMainhand.is(TFCTags.Items.HAMMERS)) {
@@ -49,35 +52,21 @@ public class StarDrillItem extends Item {
         return InteractionResult.FAIL;
     }
 
-    // Runs when item use is completed
-    @Override
-    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
-        pLivingEntity.getOffhandItem().hurtAndBreak(1, pLivingEntity, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
-        pLevel.playSound(pLivingEntity, clickedBlock, SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 1.0f, 1.8f);
-        pLevel.destroyBlock(clickedBlock, false);
-
-        return pStack;
-    }
-
-    // Sets duration in ticks required to use item
-    @Override
-    public int getUseDuration(ItemStack pStack) {
-        return 100;
-    }
-
     // Runs every tick during item use
     @Override
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
         HitResult block = pLivingEntity.pick(5, 1, false);
         BlockPos blockpos = ((BlockHitResult)block).getBlockPos();
-        Random random = new Random();
 
+        // Force player to stop using if they look away from the block they started using on
         if(!blockpos.equals(clickedBlock)) {
-            player.stopUsingItem();
+            pLivingEntity.stopUsingItem();
         }
 
         // The -1 here is to stop the first sound from playing to stop players from spamming it
         if((pRemainingUseDuration - 1) % 20 == 0) {
+            Random random = new Random();
+
             pLevel.playSound(
                     pLivingEntity,
                     clickedBlock,
@@ -87,5 +76,15 @@ public class StarDrillItem extends Item {
                     random.nextFloat(1.85f - 1.65f) + 1.65f
             );
         }
+    }
+
+    // Runs when item use is completed
+    @Override
+    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+        pLivingEntity.getOffhandItem().hurtAndBreak(1, pLivingEntity, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
+        pLevel.playSound(pLivingEntity, clickedBlock, SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 1.0f, 1.8f);
+        pLevel.destroyBlock(clickedBlock, false);
+
+        return pStack;
     }
 }
