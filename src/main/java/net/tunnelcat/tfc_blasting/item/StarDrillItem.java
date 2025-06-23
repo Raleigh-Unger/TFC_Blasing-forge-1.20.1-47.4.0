@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.tunnelcat.tfc_blasting.util.TFCBlastingTags;
@@ -33,19 +34,21 @@ public class StarDrillItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()) {
-            Player player = pContext.getPlayer();
-            ItemStack itemMainhand = player.getMainHandItem();
-            ItemStack itemOffhand = player.getOffhandItem();
-
             clickedBlock = pContext.getClickedPos();
             face = pContext.getClickedFace();
 
-            // Check if star drill in offhand and hammer in main hand then do the interaction
-            if(itemOffhand.is(TFCBlastingTags.Items.STAR_DRILLS) && itemMainhand.is(TFCTags.Items.HAMMERS)) {
-                // Begin using
-                player.startUsingItem(InteractionHand.OFF_HAND);
+            Player player = pContext.getPlayer();
+            ItemStack itemMainhand = player.getMainHandItem();
+            ItemStack itemOffhand = player.getOffhandItem();
+            BlockState block = pContext.getLevel().getBlockState(clickedBlock);
 
-                return InteractionResult.SUCCESS;
+            // Check if star drill in offhand and hammer in main hand and block is drillable then do the interaction
+            if(itemOffhand.is(TFCBlastingTags.ItemTags.STAR_DRILLS) && itemMainhand.is(TFCTags.Items.HAMMERS)) {
+                if(block.is(TFCBlastingTags.BlockTags.CAN_STAR_DRILL)) {
+                    player.startUsingItem(InteractionHand.OFF_HAND);
+
+                    return InteractionResult.SUCCESS;
+                }
             }
         }
 

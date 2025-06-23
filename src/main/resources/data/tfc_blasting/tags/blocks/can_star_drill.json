@@ -4,7 +4,7 @@
     "#forge:ores",
     "#forge:stone",
     "#forge:smooth_stone",
-    "#forge:standstone",
-    "#forge:stone_bricks"
+    "#forge:stone_bricks",
+    "#forge:sandstone"
   ]
 }
