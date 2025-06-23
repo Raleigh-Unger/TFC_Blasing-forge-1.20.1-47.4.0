@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ores",
+    "#forge:stone",
+    "#forge:smooth_stone",
+    "#forge:standstone",
+    "#forge:stone_bricks"
+  ]
+}

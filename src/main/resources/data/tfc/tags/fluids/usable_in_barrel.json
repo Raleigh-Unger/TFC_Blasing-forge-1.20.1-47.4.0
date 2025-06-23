@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tfc_blasting: glycerin",
+    "tfc_blasting: glycerin_slurry",
+    "tfc_blasting: gunpowder_slurry"
+  ]
+}
