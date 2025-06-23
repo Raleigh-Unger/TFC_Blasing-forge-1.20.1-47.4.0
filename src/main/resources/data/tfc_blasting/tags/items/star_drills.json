@@ -1,5 +1,9 @@
 {
   "values": [
-    "tfc_blasting:star_drill_iron"
+    "tfc_blasting:star_drill_iron",
+    "tfc_blasting:star_drill_steel",
+    "tfc_blasting:star_drill_black_steel",
+    "tfc_blasting:star_drill_blue_steel",
+    "tfc_blasting:star_drill_red_steel"
   ]
 }

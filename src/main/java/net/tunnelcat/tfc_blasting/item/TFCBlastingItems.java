@@ -30,12 +30,19 @@ public class TFCBlastingItems {
     public static final RegistryObject<Item> FUSE                   = ITEMS.register("fuse"                     ,() -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> STAR_DRILL_IRON        = ITEMS.register("star_drill_iron"          ,() -> new StarDrillItem(
-            new Item.Properties()
-                    .stacksTo(1)
-                    .durability(25)
-                    .rarity(Rarity.COMMON)
-            )
-    );
+            new Item.Properties().stacksTo(1).durability(100).rarity(Rarity.COMMON)));
+
+    public static final RegistryObject<Item> STAR_DRILL_STEEL       = ITEMS.register("star_drill_steel"         ,() -> new StarDrillItem(
+                    new Item.Properties().stacksTo(1).durability(250).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> STAR_DRILL_BLACK_STEEL = ITEMS.register("star_drill_black_steel"   , () -> new StarDrillItem(
+                    new Item.Properties().stacksTo(1).durability(500).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> STAR_DRILL_BLUE_STEEL  = ITEMS.register("star_drill_blue_steel"    ,() -> new StarDrillItem(
+                    new Item.Properties().stacksTo(1).durability(1000).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> STAR_DRILL_RED_STEEL   = ITEMS.register("star_drill_red_steel"     ,() -> new StarDrillItem(
+                    new Item.Properties().stacksTo(1).durability(1000).rarity(Rarity.EPIC)));
 
     // Creates registrations for each fluid's corresponding filled bucket
     public static final Map<SimpleFluid, RegistryObject<BucketItem>> SIMPLE_FLUID_BUCKETS = Helpers.mapOfKeys(SimpleFluid.class, fluid ->

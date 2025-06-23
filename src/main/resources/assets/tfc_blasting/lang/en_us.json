@@ -17,6 +17,10 @@
   "item.tfc_blasting.bucket.gunpowder_slurry"                     : "Gunpowder Slurry Bucket",
   "item.tfc_blasting.bucket.picric_acid_wet"                      : "Picric Acid Bucket",
   "item.tfc_blasting.star_drill_iron"                             : "Wrought Iron Star Drill",
+  "item.tfc_blasting.star_drill_steel"                            : "Steel Star Drill",
+  "item.tfc_blasting.star_drill_black_steel"                      : "Black Steel Star Drill",
+  "item.tfc_blasting.star_drill_blue_steel"                       : "Blue Steel Star Drill",
+  "item.tfc_blasting.star_drill_red_steel"                        : "Red Steel Star Drill",
 
   "fluid.tfc_blasting.nitroglycerin"                              : "Nitroglycerin",
   "fluid.tfc_blasting.glycerin"                                   : "Glycerin",
@@ -24,5 +28,8 @@
   "fluid.tfc_blasting.nitric_acid"                                : "Nitric Acid",
   "fluid.tfc_blasting.glycerin_slurry"                            : "Dirty Glycerin",
   "fluid.tfc_blasting.gunpowder_slurry"                           : "Gunpowder Slurry",
-  "fluid.tfc_blasting.picric_acid_wet"                            : "Picric Acid"
+  "fluid.tfc_blasting.picric_acid_wet"                            : "Picric Acid",
+
+  "tfc.recipe.barrel.tfc_blasting.barrel.fuse"                    : "Fuse",
+  "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Nitroglycerin Soaked Clay Rod"
 }
