@@ -3,6 +3,9 @@ package net.tunnelcat.tfc_blasting.item;
 import net.dries007.tfc.common.TFCTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -20,6 +23,8 @@ import net.minecraft.world.phys.HitResult;
 import net.tunnelcat.tfc_blasting.util.TFCBlastingTags;
 
 import java.util.Random;
+
+import static net.tunnelcat.tfc_blasting.util.TFCBlastingHelpers.getParticleOffsetToFace;
 
 public class StarDrillItem extends Item {
     private BlockPos clickedBlock;
@@ -42,12 +47,14 @@ public class StarDrillItem extends Item {
             ItemStack itemOffhand = player.getOffhandItem();
             BlockState block = pContext.getLevel().getBlockState(clickedBlock);
 
-            // Check if star drill in offhand and hammer in main hand and block is drillable then do the interaction
-            if(itemOffhand.is(TFCBlastingTags.ItemTags.STAR_DRILLS) && itemMainhand.is(TFCTags.Items.HAMMERS)) {
-                if(block.is(TFCBlastingTags.BlockTags.CAN_STAR_DRILL)) {
-                    player.startUsingItem(InteractionHand.OFF_HAND);
+            // Check block is drillable, drill in offhand, hammer in main hand, and not underwater before beginning interaction
+            if(block.is(TFCBlastingTags.BlockTags.CAN_STAR_DRILL)) {
+                if(itemOffhand.is(TFCBlastingTags.ItemTags.STAR_DRILLS) && itemMainhand.is(TFCTags.Items.HAMMERS)) {
+                    if(!player.isUnderWater()) {
+                        player.startUsingItem(InteractionHand.OFF_HAND);
 
-                    return InteractionResult.SUCCESS;
+                        return InteractionResult.SUCCESS;
+                    }
                 }
             }
         }
@@ -59,17 +66,18 @@ public class StarDrillItem extends Item {
     @Override
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
         HitResult block = pLivingEntity.pick(5, 1, false);
-        BlockPos blockpos = ((BlockHitResult)block).getBlockPos();
+        BlockPos blockpos = ((BlockHitResult) block).getBlockPos();
 
-        // Force player to stop using if they look away from the block they started using on
-        if(!blockpos.equals(clickedBlock)) {
+        // Force player to stop using if they look away from the block they started using on or go underwater
+        if (!blockpos.equals(clickedBlock) || pLivingEntity.isUnderWater()) {
             pLivingEntity.stopUsingItem();
         }
 
-        // The -1 here is to stop the first sound from playing to stop players from spamming it
-        if((pRemainingUseDuration - 1) % 20 == 0) {
+        // The -1 here is to stop the first sound from playing so players can't spam it
+        if ((pRemainingUseDuration - 1) % 20 == 0) {
             Random random = new Random();
 
+            // Drill hit sound
             pLevel.playSound(
                     pLivingEntity,
                     clickedBlock,
@@ -78,6 +86,19 @@ public class StarDrillItem extends Item {
                     1.0f,
                     random.nextFloat(1.85f - 1.65f) + 1.65f
             );
+
+            // Drill hit particles
+            if(!pLevel.isClientSide()) {
+                ((ServerLevel) pLevel).sendParticles(new BlockParticleOption(
+                                ParticleTypes.BLOCK,
+                                pLevel.getBlockState(clickedBlock).getBlock().defaultBlockState()
+                        ),
+                        clickedBlock.getX() + getParticleOffsetToFace('x', face),
+                        clickedBlock.getY() + getParticleOffsetToFace('y', face),
+                        clickedBlock.getZ() + getParticleOffsetToFace('z', face),
+                        10, 0, 0, 0, 3
+                );
+            }
         }
     }
 
