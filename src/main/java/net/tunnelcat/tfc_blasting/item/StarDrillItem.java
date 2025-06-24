@@ -69,8 +69,10 @@ public class StarDrillItem extends Item {
         BlockPos blockpos = ((BlockHitResult) block).getBlockPos();
 
         // Force player to stop using if they look away from the block they started using on or go underwater
-        if (!blockpos.equals(clickedBlock) || pLivingEntity.isUnderWater()) {
-            pLivingEntity.stopUsingItem();
+        if(!pLevel.isClientSide()) {
+            if (!blockpos.equals(clickedBlock) || pLivingEntity.isUnderWater()) {
+                pLivingEntity.stopUsingItem();
+            }
         }
 
         // The -1 here is to stop the first sound from playing so players can't spam it
