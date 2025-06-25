@@ -1,9 +1,11 @@
 package net.tunnelcat.tfc_blasting;
 
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.tunnelcat.tfc_blasting.item.StarDrillItem;
 import org.slf4j.Logger;
 
 import static net.tunnelcat.tfc_blasting.block.TFCBlastingBlocks.BLOCKS;
@@ -21,8 +23,6 @@ public class TFCBlasting {
     public TFCBlasting(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        LOGGER.info("TFC Blasting begin registrations");
-
         CREATIVE_MODE_TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         FLUID_TYPES.register(modEventBus);
@@ -30,6 +30,6 @@ public class TFCBlasting {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
-        LOGGER.info("TFC Blasting done registrations");
+        MinecraftForge.EVENT_BUS.addListener(StarDrillItem::onRightClickBlock);
     }
 }

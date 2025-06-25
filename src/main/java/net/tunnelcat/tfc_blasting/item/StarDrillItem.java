@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.tunnelcat.tfc_blasting.util.TFCBlastingTags;
 
 import java.util.Random;
@@ -112,5 +113,14 @@ public class StarDrillItem extends Item {
         pLevel.destroyBlock(clickedBlock, false);
 
         return pStack;
+    }
+
+    // Cancels all right-click events for the hammer while drill is being used to prevent making stone anvils
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock e) {
+        if (e.getEntity().getOffhandItem().is(TFCBlastingTags.ItemTags.STAR_DRILLS) && e.getEntity().getMainHandItem().is(TFCTags.Items.HAMMERS)) {
+            if (e.getHand() == InteractionHand.MAIN_HAND) {
+                e.setCanceled(true);
+            }
+        }
     }
 }
