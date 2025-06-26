@@ -30,6 +30,8 @@
   "fluid.tfc_blasting.gunpowder_slurry"                           : "Gunpowder Slurry",
   "fluid.tfc_blasting.picric_acid_wet"                            : "Picric Acid",
 
+  "block.tfc_blasting.drill_hole_stone"                           : "Drill Hole",
+
   "tfc.recipe.barrel.tfc_blasting.barrel.fuse"                    : "Fuse",
   "tfc.recipe.barrel.tfc_blasting.barrel.clay_rod_nitroglycerin"  : "Nitroglycerin Soaked Clay Rod"
 }

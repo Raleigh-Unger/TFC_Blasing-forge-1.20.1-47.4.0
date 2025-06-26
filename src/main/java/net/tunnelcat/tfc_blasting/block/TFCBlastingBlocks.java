@@ -6,7 +6,9 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,6 +22,12 @@ import net.tunnelcat.tfc_blasting.item.TFCBlastingItems;
 
 public class TFCBlastingBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TFCBlasting.MOD_ID);
+
+    public static final RegistryObject<Block> DRILL_HOLE_STONE = register(
+            "drill_hole_stone",
+            () -> new DrillHoleBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.STONE).noOcclusion()),
+            (block) -> new BlockItem(block, new Item.Properties())
+    );
 
     // Register liquid blocks
     public static final Map<SimpleFluid, RegistryObject<LiquidBlock>> SIMPLE_FLUIDS = Helpers.mapOfKeys(SimpleFluid.class, fluid ->
