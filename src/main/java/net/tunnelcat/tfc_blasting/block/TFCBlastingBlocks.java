@@ -23,10 +23,9 @@ import net.tunnelcat.tfc_blasting.item.TFCBlastingItems;
 public class TFCBlastingBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TFCBlasting.MOD_ID);
 
-    public static final RegistryObject<Block> DRILL_HOLE_STONE = register(
+    public static final RegistryObject<Block> DRILL_HOLE_STONE = registerNoItem(
             "drill_hole_stone",
-            () -> new DrillHoleBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.STONE).noOcclusion()),
-            (block) -> new BlockItem(block, new Item.Properties())
+            () -> new DrillHoleBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.STONE).noOcclusion())
     );
 
     // Register liquid blocks
