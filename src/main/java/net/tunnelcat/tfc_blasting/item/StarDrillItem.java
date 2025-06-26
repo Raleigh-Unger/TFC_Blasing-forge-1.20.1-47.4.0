@@ -15,9 +15,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -30,6 +30,7 @@ import java.util.Random;
 import static net.tunnelcat.tfc_blasting.util.TFCBlastingHelpers.getParticleOffsetToFace;
 
 public class StarDrillItem extends Item {
+    private BlockPlaceContext placeContext;
     private BlockPos clickedBlock;
     private Direction face;
 
@@ -42,6 +43,7 @@ public class StarDrillItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()) {
+            placeContext = new BlockPlaceContext(pContext);
             clickedBlock = pContext.getClickedPos();
             face = pContext.getClickedFace();
 
@@ -112,7 +114,7 @@ public class StarDrillItem extends Item {
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
         pLivingEntity.getOffhandItem().hurtAndBreak(1, pLivingEntity, p -> p.broadcastBreakEvent(p.getUsedItemHand()));
         pLevel.playSound(pLivingEntity, clickedBlock, SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 1.0f, 1.8f);
-        pLevel.setBlock(clickedBlock, TFCBlastingBlocks.DRILL_HOLE_STONE.get().defaultBlockState(), 1);
+        pLevel.setBlock(clickedBlock, TFCBlastingBlocks.DRILL_HOLE_STONE.get().getStateForPlacement(placeContext), 1);
 
         return pStack;
     }
